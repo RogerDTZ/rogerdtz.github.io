@@ -13,7 +13,7 @@
      * 内容JSON
      */
   var demoContent = [
-    /*{
+    {
       demo_link: 'https://codepen.io/haoyang/pen/jrvrQq',
       img_link: 'https://ooo.0o0.ooo/2016/11/24/5836d81f48cd2.png',
       code_link: 'https://codepen.io/haoyang/pen/jrvrQq',
@@ -132,7 +132,7 @@
       title: '仿知乎页面',
       core_tech: 'HTML BootStrap',
       description: '使用BootStrap仿照知乎做了一个静态页面。'
-    }*/
+    }
   ];
 
   contentInit(demoContent) //内容初始化
