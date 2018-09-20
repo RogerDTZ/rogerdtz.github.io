@@ -1,12 +1,11 @@
 ---
 layout: post
-title:  "【ARC082】Sandglass"
-date: 2018-08-29 15:23:33
+title: 【ARC082】Sandglass
+date: 2018-09-19
+tag: [模拟]
 categories: 2017国家集训队作业
-tags: 模拟
 mathjax: true
 ---
-
 * content
 {:toc}
 
