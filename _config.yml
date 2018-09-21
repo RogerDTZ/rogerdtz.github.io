@@ -32,8 +32,8 @@ duoshuo_shortname: #hygblog
 disqus_shortname: #rogerdtz
 #gitment
 comment_gitment_repo: rogerdtz.github.io
-comment_gitment_clientId: d72eb086e18104d378cc
-comment_gitment_clientSecret: 2aababb698c15aa2112c101d01ee898e27cea491
+comment_gitment_clientId: 0c39d4d878a8589cb77e
+comment_gitment_clientSecret: 2150d32cf3c58a4029dc1b19b215d935c87bc510
 
 # statistic analysis 统计代码
 # 百度统计 id，将统计代码替换为自己的百度统计id，即
@@ -62,3 +62,6 @@ excerpt_separator: "\n\n\n\n"
 # paginate
 gems: [jekyll-paginate]
 paginate: 6
+
+# code syntax
+pygments: true
