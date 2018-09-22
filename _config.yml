@@ -30,6 +30,7 @@ description_footer: 没有什么比沟通更好的了
 # 两种评论插件，选一个就好了，使用自己的 short_name
 duoshuo_shortname: #hygblog
 disqus_shortname: #rogerdtz
+gitment_enable: false
 #gitment
 comment_gitment_repo: rogerdtz.github.io
 comment_gitment_clientId: 0c39d4d878a8589cb77e
