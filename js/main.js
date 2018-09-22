@@ -1,3 +1,5 @@
+
+
 /**
  * some JavaScript code for this blog theme
  */
@@ -55,3 +57,4 @@
 (function() {
   var demoItems = document.querySelectorAll('.grid-item')
 }());
+
