@@ -9,7 +9,7 @@ mathjax: true
 {:toc}
 # Description
 
-[原题链接](http://acm.hdu.edu.cn/showproblem.php?pid=5794)
+　　[原题链接](http://acm.hdu.edu.cn/showproblem.php?pid=5794)
 
 　　从$(1,1)$走到$(n,m)$，每次只能往右上方走“日”字对角
 
