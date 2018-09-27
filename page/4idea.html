@@ -3,13 +3,13 @@ layout: idea
 title: Ideas
 inside_title: 思路和Tricks的集合
 permalink: /ideas/
-icon: stop
+icon: pencil
 type: page
 ---
 
 <HR style="FILTER: alpha(opacity=100,finishopacity=0,style=1)" color=#d4d4d4 SIZE=3>
 {% for post in site.posts %}
-	{% if {{post.content}} contains 'Summary' %}
+	{% if post.content contains 'Summary' %}
 		{% assign desc = post.content | split: '</h1>' %}
 		{% assign findSummary = false %}
 		{% for line in desc %}
