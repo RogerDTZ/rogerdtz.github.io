@@ -2,7 +2,7 @@
 layout: post
 title: 【HDU5794】A Simple Chess
 date: 2018-09-25-20:32:00
-tags: [最小表示法,数论---Lucas定理,DP---计数DP]
+tags: [最小表示法,数论---Lucas定理,DP---计数]
 mathjax: true
 ---
 * content

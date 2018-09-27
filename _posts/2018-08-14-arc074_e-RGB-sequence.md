@@ -4,7 +4,7 @@ title: 【ARC074E】 RGB sequence
 date: 2018-08-14
 mathjax: true
 categories: [2017国家集训队作业]
-tags: [计数问题,DP---计数DP]
+tags: [DP---计数]
 ---
 * content
 {:toc}
