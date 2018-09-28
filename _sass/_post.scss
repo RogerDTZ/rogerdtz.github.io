@@ -59,6 +59,8 @@
         // }
     }
 }
+	
+
 @media screen and (max-width: 770px) {
     .page[post] {
         .left {
@@ -80,4 +82,22 @@
             }
         }
     }
+}
+
+
+
+
+.page[idea] {
+	.left{
+		a:hover {
+   	 		color: #3b98ca !important;
+   	 	}
+   	 	a:visited {
+    			color: #4d6dad;
+    		}
+    		a:link {
+    			color: #4d6dad;
+    			transition: 0.2s ease;
+    		}
+    	}
 }
