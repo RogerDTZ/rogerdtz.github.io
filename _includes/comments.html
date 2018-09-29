@@ -73,7 +73,7 @@
         repo: '{{site.comment_gitalk_repo}}',
         owner: '{{site.github_username}}',
         admin: ['{{site.github_username}}'],
-        id: 'window.location.pathname',
+        id: '{{page.title}}',
     });
     gitalk.render('gitalk-container');
 </script>
