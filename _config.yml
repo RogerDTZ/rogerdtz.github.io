@@ -30,11 +30,16 @@ description_footer: 没有什么比沟通更好的了
 # 两种评论插件，选一个就好了，使用自己的 short_name
 duoshuo_shortname: #hygblog
 disqus_shortname: #rogerdtz
-gitment_enable: false
 #gitment
+gitment_enable: false
 comment_gitment_repo: rogerdtz.github.io
 comment_gitment_clientId: 0c39d4d878a8589cb77e
 comment_gitment_clientSecret: 2150d32cf3c58a4029dc1b19b215d935c87bc510
+#gitalk
+gitalk_enable: true
+comment_gitalk_repo: rogerdtz.github.io
+comment_gitalk_clientId: 3872c4240c78f88278be
+comment_gitalk_clientSecret: 7af0d2be224faac129925c4a1708e51f7dc8c2c3
 
 # statistic analysis 统计代码
 # 百度统计 id，将统计代码替换为自己的百度统计id，即
