@@ -20,3 +20,13 @@ type: page
 * [vim配置文件(.vimrc)](https://raw.githubusercontent.com/RogerDTZ/Program/master/.vimrc)
 * [tmux配置文件(.tmux.conf)](https://raw.githubusercontent.com/RogerDTZ/Program/master/.tmux.conf)
 * [msys配置文件(.minttyrc)](https://raw.githubusercontent.com/RogerDTZ/Program/master/.minttyrc)
+
+
+
+## 软件和工具
+
+- Geogebra
+	- [Windows](https://download.geogebra.org/package/win-autoupdate)
+	- [Linux](https://wiki.geogebra.org/en/Reference:GeoGebra_Installation#GeoGebra_Classic_6)
+- [在线绘“图”](https://csacademy.com/app/graph_editor/)
+
