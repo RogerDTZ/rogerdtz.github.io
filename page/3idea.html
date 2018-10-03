@@ -16,7 +16,7 @@ type: page
 			{% if findSummary %}
 				{% assign sum = line | split: '<h1 id' %}
 				{{ sum[0] }}
-				<p style="text-align: right; margin-right: 30px">—�?a href={{ post.url }}>{{ post.date | slice:0,10}} {{ post.title }}</a></p>
+				<p style="text-align: right; margin-right: 30px">——<a href={{ post.url }}>{{ post.date | slice:0,10}} {{ post.title }}</a></p>
 				<HR style="FILTER: alpha(opacity=100,finishopacity=0,style=1)" color=#d4d4d4 SIZE=3>
 				{% break %}
 			{% endif %}
