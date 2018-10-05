@@ -3,7 +3,7 @@ layout: post
 mathjax: true
 title: 【BZOj4299】ForbiddenSum
 date: 2018-10-04-15:58:00
-tag: [主席树,思考题,Unsolved]
+tag: [主席树,思考题,好题]
 ---
 
 * content
