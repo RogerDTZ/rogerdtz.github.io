@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 【ARC082E】ConvexScore
-tag: [转换]
+tag: [转化]
 categories: 2017国家集训队作业
 date: 2018-08-29
 mathjax: true
