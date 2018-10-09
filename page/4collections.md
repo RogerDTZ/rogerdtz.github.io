@@ -12,6 +12,7 @@ type: page
 
 - [GVim](https://ftp.nluug.nl/pub/vim/pc/gvim81.exe)
 - [MinGW](https://osdn.net/projects/mingw/downloads/68260/mingw-get-setup.exe/)
+- [MSYS2](http://repo.msys2.org/distrib/x86_64/msys2-x86_64-20180531.exe)
 
 
 
