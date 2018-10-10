@@ -1,7 +1,7 @@
 ---
 layout: post
 mathjax: true
-title: 【ARC101B】Median of Medians
+title: 【ARC101D】Median of Medians
 date: 2018-10-10-19:16:00
 tag: [转化,二分答案,好题]
 ---
