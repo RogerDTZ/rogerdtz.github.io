@@ -2,7 +2,7 @@
 layout: post
 mathjax: true
 title: 【ARC101E】Ribbons on Tree
-date: 2018-10-10-16:12:00
+date: 2018-10-10-21:48:00
 tag: [DP---树形DP,容斥原理]
 ---
 * content
