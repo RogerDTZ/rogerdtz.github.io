@@ -2,7 +2,7 @@
 layout: post
 mathjax: true
 title: 【ARC100D】Equal Cut
-date: 2018-10-10-16:12:00
+date: 2018-10-11-16:47:00
 tag: [二分,贪心,思考题]
 ---
 * content
