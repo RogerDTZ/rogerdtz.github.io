@@ -1,7 +1,7 @@
 ---
 layout: post
 mathjax: true
-title: 【ARC096E】Sorted and sorted
+title: 【ARC097E】Sorted and sorted
 date: 2018-10-20-12:00:00
 tag: [DP,逆序对]
 ---

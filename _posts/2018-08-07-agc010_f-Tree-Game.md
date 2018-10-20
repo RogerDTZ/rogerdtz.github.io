@@ -4,7 +4,7 @@ title: 【AGC010F】Tree Game
 date: 2018-08-07
 mathjax: true
 categories: [2017国家集训队作业]
-tags: [博弈论,树形DP]
+tags: [博弈论,DP---树形DP]
 ---
 * content
 {:toc}
