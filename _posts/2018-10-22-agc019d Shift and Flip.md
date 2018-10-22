@@ -4,6 +4,7 @@ mathjax: true
 title: 【AGC019D】Shift and Flip
 date: 2018-10-22-15:11:00
 tag: [方案特征,可做未做]
+category: 2017国家集训队作业
 ---
 * content
 {:toc}
