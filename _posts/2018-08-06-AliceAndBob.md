@@ -3,7 +3,7 @@ layout: post
 title: AliceAndBob
 date: 2018-08-06
 mathjax: true
-tags: Trie
+tags: 字符串---Trie
 ---
 * content
 {:toc}
