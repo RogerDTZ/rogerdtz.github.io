@@ -129,7 +129,7 @@ scheme: Gemini
 # Value after `||` delimeter is the name of FontAwesome icon. If icon (with or without delimeter) is not specified, globe icon will be loaded.
 social:
   GitHub: https://github.com/RogerDTZ || github
-  E-Mail: 1440106948@qq.com || envelope
+  E-Mail: mailto:1440106948@qq.com || envelope
   #Google: https://plus.google.com/yourname || google
   #Twitter: https://twitter.com/yourname || twitter
   #FB Page: https://www.facebook.com/yourname || facebook
@@ -146,11 +146,21 @@ social_icons:
 
 # Blog rolls
 links_icon: link
-links_title: Links
+links_title: 友情链接
 links_layout: block
 #links_layout: inline
-#links:
-  #Title: http://example.com/
+links:
+  神犇zjt: http://zjt-blog.cc/
+  神犇yww: http://www.cnblogs.com/ywwyww/
+  老爷爷lyy: http://www.cnblogs.com/jefflyy/
+  浮空大师xfz: http://www.cnblogs.com/xiefengze1
+  死宅yxq: https://www.illyasviel.top/
+  蜘蛛hy: http://www.cnblogs.com/yoyoball/
+  法学大师hwc: http://www.ebola.pro/
+  神犇lhx: http://www.cnblogs.com/dedicatus545/
+  神犇cky: http://www.cnblogs.com/CK6100LGEV2/
+
+
 
 # Sidebar Avatar
 # in theme directory(source/images): /images/avatar.gif
