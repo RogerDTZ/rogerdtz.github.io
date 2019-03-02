@@ -77,7 +77,11 @@ theme: next
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
-  type:
+  type: git
+  repo: https://github.com/RogerDTZ/rogerdtz.github.io
+  branch: master
+  
+
 
 
 search:
