@@ -3,9 +3,9 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: 网页标题
-subtitle: 网页副标题
-description: 网页描述
+title: RogerDTZ
+subtitle: OI笔记与总结
+description: 忍一时风平浪静，退一步海阔天空
 author: RogerDTZ
 language: zh-Hans
 timezone: Asia/Shanghai
@@ -40,8 +40,8 @@ future: true
 highlight:
   enable: true
   line_number: true
-  auto_detect: false
-  tab_replace: true
+  auto_detect: true
+  tab_replace:
 
 # Home page setting
 # path: Root path for your blogs index page. (default = '')
