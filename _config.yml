@@ -41,7 +41,7 @@ highlight:
   enable: true
   line_number: true
   auto_detect: true
-  tab_replace: 
+  tab_replace: 　　
 
 # Home page setting
 # path: Root path for your blogs index page. (default = '')
@@ -54,7 +54,7 @@ index_generator:
 
 # Category & Tag
 default_category: uncategorized
-category_map: 
+category_map:
 tag_map:
 
 # Date / Time format
