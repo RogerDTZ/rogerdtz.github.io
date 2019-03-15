@@ -428,6 +428,13 @@ gitment:
   proxy_gateway: # Address of api proxy, See: https://github.com/aimingoo/intersect
   redirect_protocol: # Protocol of redirect_uri with force_redirect_protocol when mint enabled
 
+gitalk:
+  enable: true
+  github_username: RogerDTZ
+  comment_gitalk_repo: rogerdtz.github.io
+  comment_gitalk_clientID: 3872c4240c78f88278be
+  comment_gitalk_clientSecret: 7af0d2be224faac129925c4a1708e51f7dc8c2c3
+
 # Baidu Share
 # Available value:
 #    button | slide
