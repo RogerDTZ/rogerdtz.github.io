@@ -688,6 +688,7 @@ motion:
     post_block: fadeIn
     post_header: slideDownIn
     post_body: slideDownIn
+    gitalk-container: slideDownIn
     coll_header: slideLeftIn
     # Only for Pisces | Gemini.
     sidebar: slideUpIn
