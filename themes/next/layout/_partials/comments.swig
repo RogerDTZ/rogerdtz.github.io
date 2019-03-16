@@ -65,19 +65,22 @@
   {% elseif theme.gitalk.enable %}
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
     <script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
-    <div id="gitalk-container" class="gitalk-container" style="background-color: white; padding: 40px; margin-top: 15px;"></div>
-    <script type="text/javascript">
-      var gitalk = new Gitalk({
-        clientID: '{{ theme.gitalk.comment_gitalk_clientID }}',
-        clientSecret: '{{ theme.gitalk.comment_gitalk_clientSecret }}',
-        repo: '{{ theme.gitalk.comment_gitalk_repo }}',
-        owner: '{{ theme.gitalk.github_username }}',
-        admin: ['{{ theme.gitalk.github_username }}'],
-        id: '{{ page.date }}{{ page.title }}',
-        enableHotKey: true
-      })
-      gitalk.render('gitalk-container')
-    </script>
+    <div id="comment-block" class="comment-block" style="background-color: white; padding: 40px; margin-top: 15px;">
+      <h1 id="Comment"><a href="#Comments" class="headerlink" title="Comments"></a>评论</h1>
+      <div id="gitalk-container" class="gitalk-container"></div>
+      <script type="text/javascript">
+        var gitalk = new Gitalk({
+          clientID: '{{ theme.gitalk.comment_gitalk_clientID }}',
+          clientSecret: '{{ theme.gitalk.comment_gitalk_clientSecret }}',
+          repo: '{{ theme.gitalk.comment_gitalk_repo }}',
+          owner: '{{ theme.gitalk.github_username }}',
+          admin: ['{{ theme.gitalk.github_username }}'],
+          id: '{{ page.date.format('YYYY-MM-DD') }}/{{ page.title }}',
+          enableHotKey: true
+        })
+        gitalk.render('gitalk-container')
+        </script>
+    </div>
 
   {% elseif theme.valine.appid and theme.valine.appkey %}
     <div class="comments" id="comments">
