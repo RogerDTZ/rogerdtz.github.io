@@ -32,8 +32,8 @@
             {% if theme.avatar %}
               <img class="site-author-image" itemprop="image"
                 src="{{ url_for( theme.avatar | default(theme.images + '/avatar.gif') ) }}"
-                alt="{{ theme.author }}" />
-            {% endif %}
+                alt="{{ theme.author }}" style="border-radius: 70px;"/>
+              {% endif %}
               <p class="site-author-name" itemprop="name">{{ theme.author }}</p>
               <p class="site-description motion-element" itemprop="description">{#
             #}{% if theme.seo %}{#
