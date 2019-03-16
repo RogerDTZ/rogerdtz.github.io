@@ -301,8 +301,8 @@ $(document).ready(function () {
       var $sidebarAffix = $('.sidebar-inner');
       var $sidebarAffixTransition = CONFIG.motion.transition.sidebar;
       // custom
-      var $gitalkContainer = $('.gitalk-container');
-      var $gitalkContainerTransition = CONFIG.motion.transition.gitalk_container;
+      var $commentBlock = $('.comment-block');
+      var $commentBlockTransition = CONFIG.motion.transition.comment_block;
 
       var hasPost = $postBlock.size() > 0;
 
@@ -343,8 +343,8 @@ $(document).ready(function () {
           $sidebarAffix.velocity('transition.' + $sidebarAffixTransition, postMotionOptions);
         }
         // custom
-        if (CONFIG.motion.transition.gitalk_container) {
-          $gitalkContainer.velocity('transition.' + $gitalkContainerTransition, postMotionOptions);
+        if (CONFIG.motion.transition.comment_block) {
+          $commentBlock.velocity('transition.' + $commentBlockTransition, postMotionOptions);
         }
       }
     },
