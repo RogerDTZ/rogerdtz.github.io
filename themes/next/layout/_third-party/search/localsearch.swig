@@ -26,6 +26,7 @@
       $("body")
         .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
         .css('overflow', 'hidden');
+      $('body').css('overflow', '');
       $('.search-popup-overlay').click(onPopupClose);
       $('.popup').toggle();
       var $localSearchInput = $('#local-search-input');
@@ -46,6 +47,7 @@
           '</div>' +
           '</div>')
         .css('overflow', 'hidden');
+      $('body').css('overflow', '');
       $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
 
       $.ajax({
