@@ -300,6 +300,10 @@ $(document).ready(function () {
       var $collHeaderTransition = CONFIG.motion.transition.coll_header;
       var $sidebarAffix = $('.sidebar-inner');
       var $sidebarAffixTransition = CONFIG.motion.transition.sidebar;
+      // custom
+      var $gitalkContainer = $('.gitalk-container');
+      var $gitalkContainerTransition = CONFIG.motion.transition.gitalk_container;
+
       var hasPost = $postBlock.size() > 0;
 
       hasPost ? postMotion() : integrator.next();
@@ -337,6 +341,10 @@ $(document).ready(function () {
         // Only for Pisces | Gemini.
         if (CONFIG.motion.transition.sidebar && (NexT.utils.isPisces() || NexT.utils.isGemini())) {
           $sidebarAffix.velocity('transition.' + $sidebarAffixTransition, postMotionOptions);
+        }
+        // custom
+        if (CONFIG.motion.transition.gitalk_container) {
+          $gitalkContainer.velocity('transition.' + $gitalkContainerTransition, postMotionOptions);
         }
       }
     },

@@ -65,7 +65,7 @@
   {% elseif theme.gitalk.enable %}
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
     <script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
-    <div id="gitalk-container" style="background-color: white; padding: 40px;"></div>
+    <div id="gitalk-container" class="gitalk-container" style="background-color: white; padding: 40px; margin-top: 15px;"></div>
     <script type="text/javascript">
       var gitalk = new Gitalk({
         clientID: '{{ theme.gitalk.comment_gitalk_clientID }}',
