@@ -3,7 +3,7 @@ layout: post
 mathjax: true
 title: Dexterity
 date: 2018-12-14 08:01:50
-tag: [贪心,后缀树,可做未做]
+tag: [贪心,字符串---后缀树,可做未做]
 ---
 # Description
 
@@ -17,7 +17,7 @@ tag: [贪心,后缀树,可做未做]
 
 
 
-　　　　
+
 <!-- more -->
 # Solution
 
