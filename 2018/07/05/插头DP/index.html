@@ -1,0 +1,1385 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-flash.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.ico?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="DP---插头DP,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="简介　　插头DP（轮廓线DP）是用来解决网格图回路问题的一种算法。 　　插头DP解决的经典问题就是统计经过所有格子的哈密顿回路条数，某些格子有障碍。 　　如果问题稍微进阶一点的话，不一定要求路径是回路、路径带权等等情况都可能出现。 　　它的时间复杂度比较高，但是已经属于比较高效的算法了。 基本概念　　首先看经典问题：统计一个带障碍的$n*m$网格中$(n,m\le 12)$，经过所有格子的哈密顿回">
+<meta name="keywords" content="DP---插头DP">
+<meta property="og:type" content="article">
+<meta property="og:title" content="插头DP">
+<meta property="og:url" content="https://rogerdtz.github.io/2018/07/05/插头DP/index.html">
+<meta property="og:site_name" content="RogerDTZ">
+<meta property="og:description" content="简介　　插头DP（轮廓线DP）是用来解决网格图回路问题的一种算法。 　　插头DP解决的经典问题就是统计经过所有格子的哈密顿回路条数，某些格子有障碍。 　　如果问题稍微进阶一点的话，不一定要求路径是回路、路径带权等等情况都可能出现。 　　它的时间复杂度比较高，但是已经属于比较高效的算法了。 基本概念　　首先看经典问题：统计一个带障碍的$n*m$网格中$(n,m\le 12)$，经过所有格子的哈密顿回">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://rogerdtz.github.io/2018/07/05/插头DP/!--￼1--%3E/assets/images/ct2.bmp">
+<meta property="og:image" content="https://rogerdtz.github.io/2018/07/05/插头DP/!--￼2--%3E/assets/images/ct3.bmp">
+<meta property="og:image" content="https://rogerdtz.github.io/2018/07/05/插头DP/!--￼3--%3E/assets/images/ct4.bmp">
+<meta property="og:image" content="https://rogerdtz.github.io/2018/07/05/插头DP/!--￼4--%3E/assets/images/ct5.bmp">
+<meta property="og:image" content="https://rogerdtz.github.io/2018/07/05/插头DP/!--￼5--%3E/assets/images/ct7.bmp">
+<meta property="og:updated_time" content="2021-08-24T09:13:46.475Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="插头DP">
+<meta name="twitter:description" content="简介　　插头DP（轮廓线DP）是用来解决网格图回路问题的一种算法。 　　插头DP解决的经典问题就是统计经过所有格子的哈密顿回路条数，某些格子有障碍。 　　如果问题稍微进阶一点的话，不一定要求路径是回路、路径带权等等情况都可能出现。 　　它的时间复杂度比较高，但是已经属于比较高效的算法了。 基本概念　　首先看经典问题：统计一个带障碍的$n*m$网格中$(n,m\le 12)$，经过所有格子的哈密顿回">
+<meta name="twitter:image" content="https://rogerdtz.github.io/2018/07/05/插头DP/!--￼1--%3E/assets/images/ct2.bmp">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":true,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":true,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","comment_block":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+<script>
+  var _hmt = _hmt || [];
+  (function() {
+    var hm = document.createElement("script");
+    hm.src = "https://hm.baidu.com/hm.js?c7539b3077ca451fe7fa81a9c40e6510";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(hm, s);
+  })();
+</script>
+
+
+
+
+  <link rel="canonical" href="https://rogerdtz.github.io/2018/07/05/插头DP/">
+
+
+
+
+
+  <title>插头DP | RogerDTZ</title>
+  
+
+
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-136618390-1', 'auto');
+  ga('send', 'pageview');
+</script>
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">RogerDTZ</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">OI笔记与总结</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-ideas">
+          <a href="/ideas/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-lightbulb-o"></i> <br>
+            
+            灵感与归纳
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-collections">
+          <a href="/collections/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-bookmark"></i> <br>
+            
+            资源收藏
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-talking">
+          <a href="/talking/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-comment"></i> <br>
+            
+            闲聊区
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于我
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://rogerdtz.github.io/2018/07/05/插头DP/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="RogerDTZ">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="RogerDTZ">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">插头DP</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-07-05T00:00:00+08:00">
+                2018-07-05
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Learning/" itemprop="url" rel="index">
+                    <span itemprop="name">Learning</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  2.5k 字
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  10 分钟
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p>　　插头DP（轮廓线DP）是用来解决网格图回路问题的一种算法。</p>
+<p>　　插头DP解决的经典问题就是统计经过所有格子的哈密顿回路条数，某些格子有障碍。</p>
+<p>　　如果问题稍微进阶一点的话，不一定要求路径是回路、路径带权等等情况都可能出现。</p>
+<p>　　它的时间复杂度比较高，但是已经属于比较高效的算法了。</p>
+<h1 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h1><p>　　首先看经典问题：统计一个带障碍的$n*m$网格中$(n,m\le 12)$，经过所有格子的哈密顿回路的条数。</p>
+<p>　　插头DP的状态围绕<strong>轮廓线</strong>进行转移。</p>
+<p>　　我们的状态是$f(i,j,state)$，表示$(i,j)$格子转移完成后、轮廓线状态为$state$时的情况数。</p>
+<p>　　轮廓线的形状相对于每一个$(i,j)$是确定的。$(i,j)$转移之前到转移之后，轮廓线的形状、变化如图所示：</p>
+<p><img src="!--￼1--&gt;/assets/images/ct2.bmp" alt></p>
+<p>　　即转移的格子$(i,j)$原来是轮廓线上的一个凸出点，转移后把轮廓线“从左上往右下拉”，使得$(i,j)$变成一个凹格。</p>
+<p>　　轮廓线的长度为$m+1$，我们需要记录轮廓线的每一条边的上方（对于轮廓线中打竖的那条边，则是左方），是否有边作为接口，即是否有<strong>插头</strong>。这个信息，我们存在$state$中。</p>
+<p>　　轮廓线所体现的，一是轮廓线上的插头状态，告诉你每一个地方是否应该用一条路径“接上”；二是所有路径的连通性：显然，路径是两两相连，两两成对的，我们分组标号来记录。下面用几幅图来表达一下轮廓线的记录方式：</p>
+<p><img src="!--￼2--&gt;/assets/images/ct3.bmp" alt="ct3"></p>
+<p>　　括号的每个数代表对应轮廓线边的状态，”0”表示没有路径连接，其他数表示一对路径，每对路径的标号一样。</p>
+<p>　　考虑到标号的大小没有保证，会导致状态的储存十分困难。</p>
+<p>　　我们另寻他法：注意到每对路径在轮廓线上的接口不会相交，即不会出现$(…,x,…,y,…x,…y,…)$的这种诡异情况。所以我们可以用括号序列来表示路径信息。还是上述三个例子：</p>
+<p>　　<img src="!--￼3--&gt;/assets/images/ct4.bmp" alt></p>
+<p>　　这样一来，状态$state$可以看做一个$m+1$位的3进制数：0表示无接口，1表示一对路径的左端，2表示一对路径的右端。</p>
+<h1 id="转移"><a href="#转移" class="headerlink" title="转移"></a>转移</h1><p>　　$f(i,j,state)​$的转移来源，是$f(i,j-1,state’)​$，但这样不好考虑和枚举。我们用$f(i,j,state)​$，转移到$f(i,j+1,state’)​$。</p>
+<p>　　我们将$f(i,j,\forall state)$转移到$f(i,j+1,\forall  state’)$称作大转移。</p>
+<p>　　显然，我们只需要关注轮廓线上唯一变动的两条边：我们把轮廓线从左上拉到右下，这两条边的状态会更改，更改后是什么呢？取决于新的一格内路径怎么走：</p>
+<p><img src="!--￼4--&gt;/assets/images/ct5.bmp" alt></p>
+<p>　　我们现在关注转移的位点：</p>
+<p><img src="!--￼5--&gt;/assets/images/ct7.bmp" alt></p>
+<p>　　大转移的整体步骤是：枚举每一个状态$state$，得到$p_a$和$p_b$，根据$p_a$和$p_b$的取值，枚举$(i,j)$的路径走法，对于选择的$(i,j)$的走法，由$state$修改$p_a$和$p_b$分别变成$p_a’$和$p_b’$而得到新状态$state’$，执行$f(i,j+1,state’)+=f(i,j,state)$。</p>
+<p>　　根据$p_a,p_b$枚举走法分三大类情况：</p>
+<ol>
+<li><p>$p_a=0\;,p_b=0$：</p>
+<p>这表明$(i,j)$的左方和上方没有路径连接，则当前格只能选取1号走法。</p>
+<p>令$p_a’=1,p_b’=2$得到新状态。（转移前提：$i&lt;n且j&lt;m$，否则将出现连向网格边界的路径）</p>
+</li>
+<li><p>$p_a$和$p_b$恰好有一个是0：</p>
+<p>这表明$(i,j)$的左方或者上方有一条路径连接。    </p>
+<p>由于这种走法只是将连进来的路径延长，所以这条路径在原轮廓线和新轮廓线上的性质是一样的，括号表示相同，其值也相同。</p>
+<p>令$p_a’=p_a+p_b,\;p_b’=0$代表3号（$p_a\neq0$）或5号（$p_b\neq0$）走法。（转移前提：$i&lt;n$）</p>
+<p>令$p_a’=0,\;p_b’=p_a+p_b$代表2号（$p_a\neq0$）或4号（$p_b\neq 0$）走法。（转移前提：$j&lt;m$）</p>
+</li>
+<li><p>$p_a$和$p_b$皆不为0：</p>
+<p>这表明$(i,j)$的左方和上方都有路径连接，所以$(i,j)$能填的只有6号走法，令$p_a’=0,\;p_b’=0$。可是我们将两条路径连接起来后，其他位置的状态也需要改变，因为括号序列发生了变动。</p>
+<ol>
+<li><p>$p_a=1,\;p_b=1$：两条左端路径此刻相连，对于$b$对应的右端路径位置$c$，应该令$p_c’=1$，此时$c$和$a$对应的右端路径$d$是一对路径。</p>
+</li>
+<li><p>$p_a=2,\;p_b=2$：两条右端路径此刻相连，同上，对于$a$的左端路径位置$c$，令$p_c’=2$。</p>
+<p>以上寻找对应括号路径，用括号序列配对的方式实现，复杂度$\mathcal O(m)​$    </p>
+</li>
+<li><p>$p_a=1\;,p_b=2$：一条回路此时形成。<strong>注意</strong>！这个转移只能在最后一个非障碍的位置发生，在其他任意位置连成回路都是不合法的方案。而且，<strong>答案就是被这种方式转移的量之和</strong>。这种情况我们不需要转移了，你可以姑且理解为这已经是最后一步大转移；但是对于进阶问题，如回路不一定要经过所有点，则是因为这种转移不应该被后续过程所利用（因为路径已经形成），并且答案统计可以在任意位置进行。</p>
+</li>
+<li><p>$p_a=2,\;p_b=1$：相当于从中间拼接两条路径，这种情况最舒服，因为其他位置都不会有任何变化。</p>
+</li>
+</ol>
+</li>
+</ol>
+<p>　　转移种类较多，但是写起来其实是很好实现的。</p>
+<h1 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h1><p>　　你可以将$f(i,j,state)$设成一个数组，但是这样非常不便，且大转移时要枚举所有状态，非常的缓慢，而在实际中，许多状态是不合法的。</p>
+<p>　　我们用两个哈希表$s_0,s_1$来分别模拟$f(i,j)$和$f(i,j+1)$：所有有效的$f(i,j,state)$存在$s_0$中，大转移开始前，我们可以从$s_0$里提取所有有效状态，逐一转移至$s_1$中，也就是有效的$f(i,j+1,state)$。下一步大转移开始前，交换两个哈希表，并清空$s_1$即可。    </p>
+<p>　　对于一个轮廓线状态$x$，为了操作方便，需要实现两个函数：提取某一位的值、改变某一位的值。上述括号配对表达方式中状态仅有012三种，但我们可以用四进制来表示，因为位运算的效率相对来说会比较高。</p>
+<h1 id="总结-amp-amp-代码"><a href="#总结-amp-amp-代码" class="headerlink" title="总结&amp;&amp;代码"></a>总结&amp;&amp;代码</h1><p>​    　　    插头DP看起来十分难写，但只要自己动手实现一遍，就能理清楚插头DP的基本架构，就会发现它的实现方式其实挺简明的。建议读者还是自我摸索比较好。不过这里还是贴上<a href="https://www.lydsy.com/JudgeOnline/problem.php?id=1814" target="_blank" rel="noopener">模板题BZOJ1814</a>的代码：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> Push(x,y) s[hv].insert((x),(y));</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> ll;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N=<span class="number">13</span>,BAS[<span class="number">13</span>]=&#123;<span class="number">1</span>,<span class="number">4</span>,<span class="number">16</span>,<span class="number">64</span>,<span class="number">256</span>,<span class="number">1024</span>,<span class="number">4096</span>,<span class="number">16384</span>,<span class="number">65536</span>,<span class="number">262144</span>,<span class="number">1048576</span>,<span class="number">4194304</span>,<span class="number">16777216</span>&#125;;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> HASH_MOD=<span class="number">4001</span>,S=<span class="number">50000</span>;</span><br><span class="line"><span class="keyword">int</span> n,m,mp[N][N],ln,lm;</span><br><span class="line"><span class="keyword">int</span> qcnt,q1[S],hu,hv;</span><br><span class="line">ll q2[S];</span><br><span class="line">ll ans;</span><br><span class="line"><span class="keyword">char</span> str[N];</span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">swap</span><span class="params">(<span class="keyword">int</span> &amp;x,<span class="keyword">int</span> &amp;y)</span></span>&#123;x^=y^=x^=y;&#125;</span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">int</span> <span class="title">get</span><span class="params">(<span class="keyword">int</span> st,<span class="keyword">int</span> x)</span></span>&#123;</span><br><span class="line">　　st&gt;&gt;=(x<span class="number">-1</span>)&lt;&lt;<span class="number">1</span>;</span><br><span class="line">　　<span class="keyword">return</span> st-((st&gt;&gt;<span class="number">2</span>)&lt;&lt;<span class="number">2</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">mdf</span><span class="params">(<span class="keyword">int</span> &amp;st,<span class="keyword">int</span> x,<span class="keyword">int</span> y)</span></span>&#123;</span><br><span class="line">　　st+=(y-get(st,x))*BAS[x<span class="number">-1</span>];</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">match</span><span class="params">(<span class="keyword">int</span> st,<span class="keyword">int</span> x,<span class="keyword">int</span> d)</span></span>&#123;</span><br><span class="line">　　<span class="keyword">int</span> top=<span class="number">1</span>,stdcol=get(st,x);</span><br><span class="line">　　<span class="keyword">for</span>(x+=d;top;x+=d)&#123;</span><br><span class="line">　　　　<span class="keyword">int</span> v=get(st,x);</span><br><span class="line">　　　　<span class="keyword">if</span>(v==<span class="number">0</span>) <span class="keyword">continue</span>;</span><br><span class="line">　　　　(v==stdcol)?top++:top--;</span><br><span class="line">　　&#125;</span><br><span class="line">　　<span class="keyword">return</span> x-d;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Hash</span>&#123;</span></span><br><span class="line">　　<span class="keyword">int</span> head[S],tot,id[S],nex[S];</span><br><span class="line">　　ll val[S];</span><br><span class="line">　　<span class="function"><span class="keyword">void</span> <span class="title">reset</span><span class="params">()</span></span>&#123;</span><br><span class="line">　　　　tot=<span class="number">0</span>;</span><br><span class="line">　　　　<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;HASH_MOD;i++) head[i]=<span class="number">0</span>;</span><br><span class="line">　　&#125;</span><br><span class="line">　　<span class="function"><span class="keyword">inline</span> <span class="keyword">int</span> <span class="title">get_hash</span><span class="params">(<span class="keyword">int</span> x)</span></span>&#123;<span class="keyword">return</span> x%HASH_MOD;&#125;</span><br><span class="line">　　<span class="function"><span class="keyword">void</span> <span class="title">insert</span><span class="params">(<span class="keyword">int</span> x,ll value)</span></span>&#123;</span><br><span class="line">　　　　<span class="keyword">int</span> hs=get_hash(x),u;</span><br><span class="line">　　　　<span class="keyword">for</span>(u=head[hs];u&amp;&amp;id[u]!=x;u=nex[u]);</span><br><span class="line">　　　　<span class="keyword">if</span>(!u)&#123;</span><br><span class="line">　　　　　　id[++tot]=x; val[tot]=value;</span><br><span class="line">　　　　　　nex[tot]=head[hs]; head[hs]=tot;</span><br><span class="line">　　　　&#125;</span><br><span class="line">　　　　<span class="keyword">else</span> val[u]+=value;</span><br><span class="line">　　&#125;</span><br><span class="line">　　<span class="function"><span class="keyword">void</span> <span class="title">layout</span><span class="params">(<span class="keyword">int</span> &amp;n,<span class="keyword">int</span> *lis1,ll *lis2)</span></span>&#123;</span><br><span class="line">　　　　n=<span class="number">0</span>;</span><br><span class="line">　　　　<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;HASH_MOD;i++)</span><br><span class="line">　　　　　　<span class="keyword">for</span>(<span class="keyword">int</span> u=head[i];u;u=nex[u])</span><br><span class="line">　　　　　　　　n++,lis1[n]=id[u],lis2[n]=val[u];</span><br><span class="line">　　&#125;</span><br><span class="line">&#125;s[<span class="number">2</span>];</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">draw</span><span class="params">(<span class="keyword">int</span> i,<span class="keyword">int</span> j)</span></span>&#123;</span><br><span class="line">　　<span class="keyword">int</span> a=j,b=j+<span class="number">1</span>,pa,pb;</span><br><span class="line">　　s[hu].layout(qcnt,q1,q2);	</span><br><span class="line">　　<span class="keyword">int</span> x; ll y;</span><br><span class="line">　　<span class="keyword">while</span>(qcnt)&#123;</span><br><span class="line">　　　　x=q1[qcnt]; y=q2[qcnt--];</span><br><span class="line">　　　　<span class="keyword">if</span>(!y) <span class="keyword">continue</span>;</span><br><span class="line">　　　　<span class="keyword">if</span>(j==<span class="number">1</span>) x=(x-get(x,m+<span class="number">1</span>)*BAS[m])&lt;&lt;<span class="number">2</span>;</span><br><span class="line">　　　　pa=get(x,a); pb=get(x,b);</span><br><span class="line">　　　　<span class="keyword">if</span>(mp[i][j]==<span class="number">1</span>)&#123;</span><br><span class="line">　　　　　　<span class="keyword">if</span>(!pa&amp;&amp;!pb)</span><br><span class="line">　　　　　　　　Push(x,y);</span><br><span class="line">　　　　　　<span class="keyword">continue</span>;</span><br><span class="line">　　　　&#125;</span><br><span class="line">　　　　<span class="keyword">if</span>(!pa&amp;&amp;!pb)&#123;</span><br><span class="line">　　　　　　<span class="keyword">if</span>(i&lt;n&amp;&amp;j&lt;m)&#123;</span><br><span class="line">　　　　　　　　mdf(x,a,<span class="number">1</span>); mdf(x,b,<span class="number">2</span>);</span><br><span class="line">　　　　　　　　Push(x,y);</span><br><span class="line">　　　　　　&#125;</span><br><span class="line">　　　　&#125;</span><br><span class="line">　　　　<span class="keyword">else</span> <span class="keyword">if</span>(pa&amp;&amp;pb)&#123;</span><br><span class="line">　　　　　　<span class="keyword">if</span>(pa==<span class="number">1</span>&amp;&amp;pb==<span class="number">1</span>)&#123;</span><br><span class="line">　　　　　　　　<span class="keyword">int</span> pos=match(x,b,<span class="number">1</span>);</span><br><span class="line">　　　　　　　　mdf(x,pos,<span class="number">1</span>);</span><br><span class="line">　　　　　　　　mdf(x,a,<span class="number">0</span>); mdf(x,b,<span class="number">0</span>);</span><br><span class="line">　　　　　　　　Push(x,y);</span><br><span class="line">　　　　　　&#125;</span><br><span class="line">　　　　　　<span class="keyword">else</span> <span class="keyword">if</span>(pa==<span class="number">2</span>&amp;&amp;pb==<span class="number">2</span>)&#123;</span><br><span class="line">　　　　　　　　<span class="keyword">int</span> pos=match(x,a,<span class="number">-1</span>);</span><br><span class="line">　　　　　　　　mdf(x,pos,<span class="number">2</span>);</span><br><span class="line">　　　　　　　　mdf(x,a,<span class="number">0</span>); mdf(x,b,<span class="number">0</span>);</span><br><span class="line">　　　　　　　　Push(x,y);</span><br><span class="line">　　　　　　&#125;</span><br><span class="line">　　　　　　<span class="keyword">else</span> <span class="keyword">if</span>(pa==<span class="number">1</span>&amp;&amp;pb==<span class="number">2</span>)&#123;</span><br><span class="line">　　　　　　　　<span class="keyword">if</span>(i==ln&amp;&amp;j==lm)&#123;</span><br><span class="line">　　　　　　　　　　<span class="keyword">bool</span> flag=<span class="literal">true</span>;			</span><br><span class="line">　　　　　　　　　　<span class="keyword">for</span>(<span class="keyword">int</span> k=<span class="number">1</span>;k&lt;=m+<span class="number">1</span>&amp;&amp;flag;k++) <span class="keyword">if</span>(k!=a&amp;&amp;k!=b&amp;&amp;get(x,k)) flag=<span class="literal">false</span>;</span><br><span class="line">　　　　　　　　　　<span class="keyword">if</span>(flag) </span><br><span class="line">　　　　　　　　　　　　ans+=y;</span><br><span class="line">　　　　　　　　&#125;</span><br><span class="line">　　　　　　&#125;</span><br><span class="line">　　　　　　<span class="keyword">else</span>&#123;<span class="comment">//pa==2&amp;&amp;pb==1</span></span><br><span class="line">　　　　　　　　mdf(x,a,<span class="number">0</span>); mdf(x,b,<span class="number">0</span>);</span><br><span class="line">　　　　　　　　Push(x,y);</span><br><span class="line">　　　　　　&#125;</span><br><span class="line">　　　　&#125;</span><br><span class="line">　　　　<span class="keyword">else</span>&#123;</span><br><span class="line">　　　　　　<span class="keyword">int</span> u=pa,v=pb;</span><br><span class="line">　　　　　　<span class="keyword">if</span>(i&lt;n)&#123;</span><br><span class="line">　　　　　　　　mdf(x,a,u+v); mdf(x,b,<span class="number">0</span>);</span><br><span class="line">　　　　　　　　Push(x,y);</span><br><span class="line">　　　　　　&#125;</span><br><span class="line">　　　　　　<span class="keyword">if</span>(j&lt;m)&#123;</span><br><span class="line">　　　　　　　　mdf(x,a,<span class="number">0</span>); mdf(x,b,u+v);</span><br><span class="line">　　　　　　　　Push(x,y);</span><br><span class="line">　　　　　　&#125;</span><br><span class="line">　　　　&#125;</span><br><span class="line">　　&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">　　<span class="built_in">scanf</span>(<span class="string">"%d%d"</span>,&amp;n,&amp;m);</span><br><span class="line">　　<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++)&#123;</span><br><span class="line">　　　　<span class="built_in">scanf</span>(<span class="string">"%s"</span>,str+<span class="number">1</span>);</span><br><span class="line">　　　　<span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">1</span>;j&lt;=m;j++)&#123;</span><br><span class="line">　　　　　　<span class="keyword">if</span>(str[j]==<span class="string">'.'</span>) mp[i][j]=<span class="number">0</span>;</span><br><span class="line">　　　　　　<span class="keyword">else</span> mp[i][j]=<span class="number">1</span>;</span><br><span class="line">　　　　　　<span class="keyword">if</span>(mp[i][j]!=<span class="number">1</span>) ln=i,lm=j;</span><br><span class="line">　　　　&#125;</span><br><span class="line">　　&#125;</span><br><span class="line">　　hu=<span class="number">0</span>; hv=<span class="number">1</span>;</span><br><span class="line">　　s[hu].insert(<span class="number">0</span>,<span class="number">1</span>);</span><br><span class="line">　　<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++)</span><br><span class="line">　　　　<span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">1</span>;j&lt;=m;j++)&#123;</span><br><span class="line">　　　　　　draw(i,j);</span><br><span class="line">　　　　　　swap(hu,hv);</span><br><span class="line">　　　　　　s[hv].reset();</span><br><span class="line">　　　　&#125;</span><br><span class="line">　　<span class="built_in">printf</span>(<span class="string">"%lld\n"</span>,ans);</span><br><span class="line">　　<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>​    </p>
+<p>​    </p>
+<a id="more"></a>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/DP-插头DP/" rel="tag"># DP---插头DP</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/07/01/[BZOJ4709]/" rel="next" title="【BZOJ4709】">
+                <i class="fa fa-chevron-left"></i> 【BZOJ4709】
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/07/08/[BZOJ4205]卡牌配对/" rel="prev" title="【BZOJ4205】卡牌配对">
+                【BZOJ4205】卡牌配对 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+    <script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+    <div id="comment-block" class="comment-block" style="background-color: white; padding: 40px; margin-top: 15px;">
+      <h1 id="Comment"><a href="#Comments" class="headerlink" title="Comments"></a>评论</h1>
+      <div id="gitalk-container" class="gitalk-container"></div>
+      <script type="text/javascript">
+        var gitalk = new Gitalk({
+          clientID: '3872c4240c78f88278be',
+          clientSecret: '7af0d2be224faac129925c4a1708e51f7dc8c2c3',
+          repo: 'rogerdtz.github.io',
+          owner: 'RogerDTZ',
+          admin: ['RogerDTZ'],
+          id: '2018-07-05/插头DP',
+          enableHotKey: true
+        })
+        gitalk.render('gitalk-container')
+        </script>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/avatar.jpg" alt="RogerDTZ" style="border-radius: 70px;">
+              
+              <p class="site-author-name" itemprop="name">RogerDTZ</p>
+              <p class="site-description motion-element" itemprop="description">忍一时风平浪静，退一步海阔天空</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">208</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">11</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">128</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/RogerDTZ" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:1440106948@qq.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                友情链接
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://zjt-blog.cc/" title="神犇zjt" target="_blank">神犇zjt</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.cnblogs.com/ywwyww/" title="神犇yww" target="_blank">神犇yww</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.cnblogs.com/jefflyy/" title="老爷爷lyy" target="_blank">老爷爷lyy</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.cnblogs.com/xiefengze1" title="浮空大师xfz" target="_blank">浮空大师xfz</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.illyasviel.top/" title="死宅yxq" target="_blank">死宅yxq</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.cnblogs.com/yoyoball/" title="蜘蛛hy" target="_blank">蜘蛛hy</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.ebola.pro/" title="法学大师hwc" target="_blank">法学大师hwc</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.cnblogs.com/dedicatus545/" title="神犇lhx" target="_blank">神犇lhx</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.cnblogs.com/CK6100LGEV2/" title="神犇cky" target="_blank">神犇cky</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://liqiang.nkdfz.cn/" title="LQ" target="_blank">LQ</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#简介"><span class="nav-number">1.</span> <span class="nav-text">简介</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#基本概念"><span class="nav-number">2.</span> <span class="nav-text">基本概念</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#转移"><span class="nav-number">3.</span> <span class="nav-text">转移</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#实现"><span class="nav-number">4.</span> <span class="nav-text">实现</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#总结-amp-amp-代码"><span class="nav-number">5.</span> <span class="nav-text">总结&amp;&amp;代码</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2018 &mdash; <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">RogerDTZ</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">网站总字数&#58;</span>
+    
+    <span title="网站总字数">242.3k字</span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('body').css('overflow', '');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $('body').css('overflow', '');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+
+  
+
+</body>
+</html>
