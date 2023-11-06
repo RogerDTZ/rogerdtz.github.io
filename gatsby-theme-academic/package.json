@@ -53,7 +53,7 @@
     "gatsby-remark-prismjs": "^6.19.0",
     "gatsby-remark-responsive-iframe": "^5.20.0",
     "gatsby-source-filesystem": "^3.14.0",
-    "gatsby-transformer-remark": "^4.11.0",
+    "gatsby-transformer-remark": "^5.25.1",
     "gatsby-transformer-sharp": "^3.14.0",
     "github-markdown-css": "^5.1.0",
     "hogan.js": "^3.0.2",
