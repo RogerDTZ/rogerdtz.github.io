@@ -1,24 +1,24 @@
 module.exports = {
   pathPrefix: '/gatsby-theme-academic',
-  siteUrl: 'https://tc-imba.github.io',
-  title: 'John Doe',
-  description: 'Personal Website of John Doe',
-  author: 'John Doe',
-  authorAlternative: '豆浆',
+  siteUrl: 'https://rogerdtz.github.io',
+  title: 'Tingzhen Dong',
+  description: 'Personal Website of Tingzhen Dong',
+  author: 'Tingzhen Dong',
+  authorAlternative: '董廷臻 (Roger)',
   introduction: [
-    'You can write one or several paragraphs to introduce yourself here. You can find this introduction in the `config.js` file in the template.',
-    'In this site, almost everything supports Markdown Syntax. For example, you can add hyperlinks in the introduction such as [fxhsb](https://github.com/Reapor-Yurnero) with\n```markdown\n[fxhsb](https://github.com/Reapor-Yurnero)\n```',
+    'I am currently an undergraduate student majoring Computer Science & Technology at Southern University of Science and Technology ([SUSTech](https://sustech.edu.cn/)), advised by Prof. [Yinqian Zhang](https://yinqian.org/). In 2023, I had a 6-month internship at Massachusetts Institute of Technology ([MIT](https://www.mit.edu/)) working with Prof. [Mengjia Yan](https://people.csail.mit.edu/mengjia/).',
+    'My major research interests are **computer architecture, operating systems, and cloud computing**, with a focus on their security aspects.',
+    'I am applying for Ph.D. programs for 2024 Fall. Please contact me if you are looking for new students!'
   ],
   avatar: 'avatar.png',
   professions: [
-    'Software Engineer',
-    'Full Stack Developer',
+    'CS Student',
   ],
   tocMaxDepth: 2,
   excerptMaxLength: 500,
-  birthday: 'Some day',
-  location: 'Earth',
-  email: 'john.doe@gmail.com',
+  // birthday: 'Some day',
+  location: 'Shenzhen, China',
+  email: 'dtzroger@gmail.com',
   postsForArchivePage: 3,
   defaultLanguage: 'en',
   disqusScript: process.env.DISQUS_SCRIPT
@@ -33,59 +33,56 @@ module.exports = {
   },
   social: [
     {
-      url: '/resume.pdf',
+      url: '/CV - Tingzhen Dong.pdf',
       icon: ['ai', 'cv'],
     }, {
-      url: 'https://github.com/',
+      url: 'https://github.com/RogerDTZ',
       icon: ['fab', 'github'],
-    }, {
-      url: 'https://twitter.com/',
-      icon: ['fab', 'twitter'],
     },
   ],
   // facebook: 'https://www.facebook.com/rolwin.monteiro',
   // instagram: 'https://www.instagram.com/reevan100/',
   // rss: '/rss.xml',
-  wakatime: {
-    username: 'tcimba',
-    activity: '7add4047-08f9-4da8-b649-aa114503678f',
-    language: '460a84ab-722a-4b80-b896-cabaa13ad7eb',
-    editor: 'd851639a-28d8-4884-949f-d338a858f7e9',
-    os: 'caf7d0d1-8fd2-4595-a991-363c8583fea9',
-  },
-  contactFormUrl: process.env.CONTACT_FORM_ENDPOINT
-    || 'https://getform.io/f/09a3066f-c638-40db-ad59-05e4ed71e451',
+  // wakatime: {
+  //   username: 'tcimba',
+  //   activity: '7add4047-08f9-4da8-b649-aa114503678f',
+  //   language: '460a84ab-722a-4b80-b896-cabaa13ad7eb',
+  //   editor: 'd851639a-28d8-4884-949f-d338a858f7e9',
+  //   os: 'caf7d0d1-8fd2-4595-a991-363c8583fea9',
+  // },
+  // contactFormUrl: process.env.CONTACT_FORM_ENDPOINT
+  //   || 'https://getform.io/f/09a3066f-c638-40db-ad59-05e4ed71e451',
   googleAnalyticTrackingId: process.env.GA_TRACKING_ID || '',
   education: [
     {
-      date: 'Jan 2020 - Present',
-      icon: 'graduation-cap',
-      title: 'Ph.D in Computer Science',
-      location: 'Some University, Somewhere',
-    }, {
-      date: 'Sept 2015 - Aug 2019',
+      date: 'Mar 2023 - Aug 2023',
       icon: 'university',
-      title: 'B.S.E. in Electrical and Computer Engineering',
-      location: 'Some University, Somewhere',
+      title: 'Visiting Student',
+      location: 'Massachusetts Institute of Technology',
     }, {
-      date: 'Sept 2008 - June 2015',
+      date: 'Sept 2020 - Present',
+      icon: 'university',
+      title: 'B.S. in Computer Science',
+      location: 'Southern University of Science and Technology',
+    }, {
+      date: 'Sept 2017 - July 2020',
       icon: 'school',
       title: 'Middle School',
-      location: 'Some Middle School, Somewhere',
+      location: 'Guangzhou No.2 High School',
     }],
   interests: [
     {
-      icon: 'cubes',
-      title: 'Distributed Systems',
-    }, {
       icon: 'layer-group',
-      title: 'Full Stack Development',
+      title: 'Computer Architecture',
     }, {
       icon: ['fab', 'linux'],
-      // icon: 'linux',
-      title: 'Open Source Community',
+      title: 'Operating Systems',
+    }, {
+      icon: 'cloud',
+      title: 'Cloud Computing',
     }],
   experience: [
+    /*
     {
       title: 'Work',
       position: 'left',
@@ -97,60 +94,59 @@ module.exports = {
           description: 'description',
         },
       ],
-    }, {
+    },
+    */
+    {
       title: 'Teaching',
       position: 'right',
       data: [
         {
-          date: 'Aug 2019',
-          title: 'Teaching Assistant of XXX',
-          location: 'Somewhere',
+          date: 'Sept 2022 ~ Jan 2023, Sept 2023 ~ Current',
+          title: 'Student Assistant of Data Structures and Algorithm Analysis',
+          location: 'SUSTech',
         }, {
-          date: 'Aug 2018',
-          title: 'Teaching Assistant of XXX',
-          location: 'Somewhere',
+          date: 'Feb 2022 ~ June 2022, Sept 2022 ~ Jan 2023',
+          title: 'Student Assistant of Algorithm Design and Analysis',
+          location: 'SUSTech',
         }, {
-          date: 'Aug 2017',
-          title: 'Teaching Assistant of XXX',
-          location: 'Somewhere',
-        }, {
-          date: 'Aug 2018',
-          title: 'Teaching Assistant of XXX',
-          location: 'Somewhere',
-        }, {
-          date: 'Aug 2017',
-          title: 'Teaching Assistant of XXX',
-          location: 'Somewhere',
+          date: 'Sept 2022 ~ Jan 2023',
+          title: 'Student Assistant of Artificial Intelligence',
+          location: 'SUSTech',
         },
       ],
-    }, {
-      title: 'Volunteer',
+    },
+    {
+      title: 'OI / ICPC / CCPC',
       position: 'left',
       data: [
         {
-          date: 'Aug 2019',
-          title: '[fxh](https://github.com/Reapor-Yurnero) home visit third time',
-          location: 'Somewhere',
+          date: 'Jan 2021 ~ Dec 2021',
+          title: 'Leader of SUSTech Collegiate Programming Team',
+          location: 'SUSTech',
         }, {
-          date: 'Aug 2018',
-          title: '[fxh](https://github.com/Reapor-Yurnero) home visit second time',
-          location: 'Somewhere',
+          date: 'The 4th Southern University of Science and Technology Collegiate Programming Contest',
+          title: 'Contest Director',
+          location: 'SUSTech',
         }, {
-          date: 'Aug 2017',
-          title: '[fxh](https://github.com/Reapor-Yurnero) home visit\n\n111',
-          location: 'Somewhere',
+          date: 'Sept 2020 ~ Aug 2022',
+          title: 'ICPC Team: **SUSTech Madrid**, **SUSTech Argovie**',
+          location: 'SUSTech',
+        }, {
+          date: 'Sept 2017 ~ Aug 2019',
+          title: 'OI-er',
+          location: 'Guangzhou No.2 High School',
         },
       ],
     },
   ],
   awards: [
-    {
-      date: 'Someday',
-      title: 'Some Award',
-    }, {
-      date: 'Someday',
-      title: 'Another Award',
-    },
+    {date: 'Nov 2022', title: '2nd Place, IndySCC22 Student Cluster Competition Online'}, 
+    {date: 'Apr 2022', title: 'Gold Medal, The 2021 ICPC Asia Macau Regional Contest'}, 
+    {date: 'Nov 2021', title: 'Gold Medal, The 2021 ICPC Asia Shanghai Regional Contest'}, 
+    {date: 'May 2021', title: 'Silver Medal, The 2020 ICPC Asia Macau Regional Contest'}, 
+    {date: 'Apr 2021', title: 'Gold Medal, The 2020 ICPC Asia-East Continent Final'}, 
+    {date: 'Dec 2020', title: 'Gold Medal, The 2020 ICPC Asia Shanghai Regional Contest'}, 
+    {date: 'Nov 2020', title: 'Gold Medal, The 2020 China Collegiate Programming Contest Changchun Regional Contest'}, 
   ],
   tagColors: [
     'magenta', 'red', 'volcano', 'orange', 'gold',

@@ -37,7 +37,7 @@ const Awards = () => {
   const siteMetadata = useSiteMetadata();
   return (
     <div className={styles.homepageSection}>
-      <h2 style={{ marginBottom: '0rem' }}>Awards & Scholarships</h2>
+      <h2 style={{ marginBottom: '0rem' }}>Achievements</h2>
       <Row>
         <Col xs={24} style={{ marginBottom: '-0.5rem' }}>
           <Timeline lineStyle={{ display: 'none' }} style={{ width: '100%' }}>

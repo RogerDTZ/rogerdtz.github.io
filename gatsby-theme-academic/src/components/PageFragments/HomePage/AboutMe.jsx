@@ -10,7 +10,7 @@ const AboutMe = () => {
   const markdown = Utils.parseMarkDown(description);
   // console.log(markdown);
   return (
-    <div>
+    <div style={{marginBottom: '2em'}}>
       <h1 className="titleSeparate">About Me</h1>
       <div className="markdown-body" dangerouslySetInnerHTML={{ __html: markdown }} />
       {/*      <Row gutter={[20, 20]}>
