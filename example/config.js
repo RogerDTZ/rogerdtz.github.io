@@ -1,5 +1,5 @@
 module.exports = {
-  pathPrefix: '/gatsby-theme-academic',
+  // pathPrefix: '/gatsby-theme-academic',
   siteUrl: 'https://rogerdtz.github.io',
   title: 'Tingzhen Dong',
   description: 'Personal Website of Tingzhen Dong',
