@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+Sitemap: https://rogerdtz.github.io/gatsby-theme-academic/sitemap/sitemap-index.xml
+Host: https://rogerdtz.github.io

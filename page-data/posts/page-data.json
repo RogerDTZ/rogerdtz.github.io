@@ -1,0 +1,5 @@
+{
+    "componentChunkName": "component---gatsby-theme-academic-src-pages-posts-index-jsx",
+    "path": "/posts/",
+    "result": {"data":{"allTag":{"edges":[]},"allMdx":{"edges":[]}},"pageContext":{"slug":"/posts/","langKey":"en"}},
+    "staticQueryHashes": ["1552981879","3013679938","4097791827"]}
