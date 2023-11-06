@@ -122,23 +122,26 @@ const Post = ({ data }) => {
         <div style={{ color: 'var(--rs-text-tertiary)', marginBottom: '1rem' }}>
           {time.join(', ')}
         </div>
-        <FlexboxGrid style={{ marginBottom: '1rem' }}>
-          <FlexboxGrid.Item as={Col} xs={24} sm={24} md={fluid ? 12 : 24} lg={fluid ? 16 : 24}>
-            <CodeBox title="Abstract" style={{ height: '100%' }}>
-              <p
-                style={{ marginBottom: '0' }}
-                dangerouslySetInnerHTML={{ __html: Utils.parseMarkDown(excerpt, true) }}
-              />
-            </CodeBox>
-          </FlexboxGrid.Item>
-          {fluid ? (
-            <FlexboxGrid.Item as={Col} xs={24} sm={24} md={12} lg={8}>
-              <div style={{ height: '100%' }}>
-                <Img fluid={fluid} title={title} alt={title} />
-              </div>
+        {excerpt ?
+          <FlexboxGrid style={{ marginBottom: '1rem' }}>
+            <FlexboxGrid.Item as={Col} xs={24} sm={24} md={fluid ? 12 : 24} lg={fluid ? 16 : 24}>
+              <CodeBox title="Abstract" style={{ height: '100%' }}>
+                <p
+                  style={{ marginBottom: '0' }}
+                  dangerouslySetInnerHTML={{ __html: Utils.parseMarkDown(excerpt, true) }}
+                />
+              </CodeBox>
             </FlexboxGrid.Item>
-          ) : null}
-        </FlexboxGrid>
+            {fluid ? (
+              <FlexboxGrid.Item as={Col} xs={24} sm={24} md={12} lg={8}>
+                <div style={{ height: '100%' }}>
+                  <Img fluid={fluid} title={title} alt={title} />
+                </div>
+              </FlexboxGrid.Item>
+            ) : null}
+          </FlexboxGrid>
+          : null
+        }
 
         {state.locked
           ? (
