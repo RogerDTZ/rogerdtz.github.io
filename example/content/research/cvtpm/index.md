@@ -26,14 +26,22 @@ We seek to design a framework <u>provisioning trusted vTPM for VMs in the cloud 
 
 ## Approaches
 
-To protect VM from the potentially malicious hypervisor, we adopt [AMD SEV-SNP](https://www.amd.com/en/developer/sev.html), which guarantees the integrity and confidentiality of VM on the basis of trust to AMD's Secure Processor (SP).
+To protect VM from the potentially malicious hypervisor, we adopt [AMD SEV-SNP](https://www.amd.com/en/developer/sev.html), which helps guarantee the integrity and confidentiality of VM on the basis of trust to AMD's Secure Processor (SP).
 
 The key is to
 1. protect vTPM from hypervisor by hosting it in a confidential backend VM
 2. establish a trusted connection between the guest VM and the backend VM
 3. enable the guest VM to attest to the vTPM instance and the backend VM
 
-To secure the connection traveling through the untrusted hypervisor, I proposed to apply encryption on the channel, verified the solution’s viability by inspecting the implementation of involved drivers and hypervisors, and designed a protocol that transmits encrypted commands while being compatible with traditional TPM interfaces.
+
+<center>
+<figure>
+<img src="./arch.png" width="60%" margin="2em"/>
+<figcaption>CvTPM Architecture Overview</figcaption>
+</figure>
+</center>
+
+To secure the connection traveling through the untrusted hypervisor, I proposed to apply encryption on the channel, verified the solution’s viability by inspecting the implementation of involved drivers and hypervisors (qemu), and designed a protocol that transmits encrypted commands while being compatible with traditional TPM interfaces.
 
 In addition, I expanded our considerations of TPM users to cover usages in UEFI, extending the project scope to offer trusted measured boot.
 Measured boot is a complicated process which involves interactions between cloud hypervisor, cloud user, and AMD.
