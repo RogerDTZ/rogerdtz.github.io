@@ -9,7 +9,7 @@ venue: "Arch-Sec Lab, MIT"
 path: "research/sechw-const-time"
 excerpt: "This is an ongoing project at MIT about protecting constant-time programs against transient attacks that leak secrets. It is advised by Prof. Mengjia Yan & Prof. Adam Chlipala, and conducted by me and several great Ph.D. students."
 selected: true
-cover: "./preview.png"
+cover: "./sechw-const-time.png"
 priority: 20
 ---
 

@@ -9,7 +9,7 @@ venue: "Teecert Labs, SUSTech"
 path: "research/cvtpm"
 excerpt: "This is my project at SUSTech about confidential cloud computing advised by Prof. Yinqian Zhang."
 selected: true
-cover: "./preview.png"
+cover: "./cvtpm.png"
 priority: 21
 ---
 
